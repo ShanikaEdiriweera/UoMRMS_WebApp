@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mycompany.uomrmsweb.model.User;
 import com.mycompany.uomrmsweb.model.UserProfile;
 
+
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
 
@@ -22,15 +23,15 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private UserService userService;
 	
 	@Transactional(readOnly=true)
-	public UserDetails loadUserByUsername(String ssoId)
+	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		User user = userService.findBySso(ssoId);
+		User user = userService.findByUsername(username);
 		System.out.println("User : "+user);
 		if(user==null){
 			System.out.println("User not found");
 			throw new UsernameNotFoundException("Username not found");
 		}
-			return new org.springframework.security.core.userdetails.User(user.getSsoId(), user.getPassword(), 
+			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), 
 				 user.getState().equals("Active"), true, true, true, getGrantedAuthorities(user));
 	}
 
@@ -38,10 +39,14 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private List<GrantedAuthority> getGrantedAuthorities(User user){
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
-		for(UserProfile userProfile : user.getUserProfiles()){
-			System.out.println("UserProfile : "+userProfile);
-			authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
-		}
+//		for(UserProfile userProfile : user.getUserProfiles()){
+//			System.out.println("UserProfile : "+userProfile);
+//			authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
+//		}
+
+                //test this
+                authorities.add(new SimpleGrantedAuthority("ROLE_"+user.getUserType().toString()));
+                
 		System.out.print("authorities :"+authorities);
 		return authorities;
 	}

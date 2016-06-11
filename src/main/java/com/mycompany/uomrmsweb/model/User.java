@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.mycompany.uomrmsweb.model.UserType;
+
 @Entity
 @Table(name="APP_USER")
 public class User {
@@ -21,8 +23,8 @@ public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name="SSO_ID", unique=true, nullable=false)
-	private String ssoId;
+	@Column(name="USERNAME", unique=true, nullable=false)
+	private String username;
 	
 	@Column(name="PASSWORD", nullable=false)
 	private String password;
@@ -39,6 +41,9 @@ public class User {
 	@Column(name="STATE", nullable=false)
 	private String state=State.ACTIVE.getState();
 
+        @Column(name ="USER_TYPE", nullable=true)
+        private UserType userType;
+        
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "APP_USER_USER_PROFILE", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
@@ -53,12 +58,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getSsoId() {
-		return ssoId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -108,13 +113,23 @@ public class User {
 	public void setUserProfiles(Set<UserProfile> userProfiles) {
 		this.userProfiles = userProfiles;
 	}
+        
+        //added 
+        public UserType getUserType() {
+            return userType;
+        }
+
+        public void setUserType(UserType userType) {
+            this.userType = userType;
+        }
+        //
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((ssoId == null) ? 0 : ssoId.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -129,17 +144,17 @@ public class User {
 		User other = (User) obj;
 		if (id != other.id)
 			return false;
-		if (ssoId == null) {
-			if (other.ssoId != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!ssoId.equals(other.ssoId))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
+		return "User [id=" + id + ", username=" + username + ", password=" + password
 				+ ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + ", state=" + state + ", userProfiles=" + userProfiles +"]";
 	}

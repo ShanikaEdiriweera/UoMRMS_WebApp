@@ -13,9 +13,9 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mycompany.uomrmsweb")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter {
+public class LoginConfiguration extends WebMvcConfigurerAdapter {
 	
-	@Bean(name="HelloWorld")
+	@Bean(name="Login")
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
