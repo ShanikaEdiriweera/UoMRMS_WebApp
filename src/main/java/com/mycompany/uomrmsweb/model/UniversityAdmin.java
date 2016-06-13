@@ -12,7 +12,7 @@ package com.mycompany.uomrmsweb.model;
 public class UniversityAdmin extends User{
     
     public UniversityAdmin(String ID, String name, Gender gender, UserType userType, Department department) {
-        super(ID, name, gender, userType, department);
+        //super(ID, name, gender, userType, department);
     }
     
 }

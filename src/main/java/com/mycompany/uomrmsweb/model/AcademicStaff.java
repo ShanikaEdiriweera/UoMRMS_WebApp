@@ -7,7 +7,7 @@ package com.mycompany.uomrmsweb.model;
 public class AcademicStaff extends User{
     
     public AcademicStaff(String ID, String name, Gender gender, UserType userType, Department department) {
-        super(ID, name, gender, userType, department);
+        //super(ID, name, gender, userType, department);
     }
     
 }

@@ -27,11 +27,25 @@ public class LoginController {
 		model.addAttribute("user", getPrincipal());
 		return "login/admin";
 	}
-
-	@RequestMapping(value = "/db", method = RequestMethod.GET)
+        
+        @RequestMapping(value = "/db", method = RequestMethod.GET)
 	public String dbaPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "login/dba";
+	}
+        
+        //changed
+	@RequestMapping(value = "/staff", method = RequestMethod.GET)
+	public String staffPage(ModelMap model) {
+		model.addAttribute("user", getPrincipal());
+		return "login/staff";
+	}
+        
+        //new
+        @RequestMapping(value = "/student", method = RequestMethod.GET)
+	public String studentPage(ModelMap model) {
+		model.addAttribute("user", getPrincipal());
+		return "login/student";
 	}
 
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)

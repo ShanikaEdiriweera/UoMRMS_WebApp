@@ -11,7 +11,7 @@ public class Student extends User{
     private int batch;
     
     public Student(String ID, String name, Gender gender, UserType userType, Department department, int batch) {
-        super(ID, name, gender, userType, department);
+        //super(ID, name, gender, userType, department);
         cGPA = 0.0;
         rank = 0;
         this.batch = batch; 
