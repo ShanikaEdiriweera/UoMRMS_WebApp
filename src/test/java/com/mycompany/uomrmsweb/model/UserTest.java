@@ -16,6 +16,6 @@ public class UserTest {
     @Test
     public void TestUserType(){
         User user = new User(0, "username" , "password", "firstName", "lastName", "email", "Active", UserType.Student);
-        assertEquals(user.getUserType().toString(),"Student");
+        assertEquals("usertype returned","Student",user.getUserType().toString());
     }
 }

@@ -9,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +17,7 @@ import java.util.logging.Logger;
  * @author Shanika Ediriweera
  */
 public class DBHandler {
-    private static Statement statement;
+    private Statement statement;
     private static ResultSet resultSet;
     private static MysqlConnect db;
     
@@ -27,7 +25,7 @@ public class DBHandler {
         db = MysqlConnect.getMysqlConnect();
     }
     
-    public static int setData(String sql)  {
+    public int setData(String sql)  {
         try {
             statement = db.getDBConnection().createStatement();
             int result = statement.executeUpdate(sql);
@@ -40,7 +38,7 @@ public class DBHandler {
         return 0;
     }
     
-    public static ResultSet getData(String sql) {
+    public ResultSet getData(String sql) {
         try {
             statement = db.getDBConnection().createStatement();
             resultSet = statement.executeQuery(sql);
@@ -52,7 +50,7 @@ public class DBHandler {
         return resultSet;
     }
     
-    public static int setData(PreparedStatement preparedStatement)  {
+    public int setData(PreparedStatement preparedStatement)  {
         try {
             int result = preparedStatement.executeUpdate();
             return result;
@@ -62,7 +60,7 @@ public class DBHandler {
         return 0;
     }
     
-    public static ResultSet getData(PreparedStatement preparedStatement) {
+    public ResultSet getData(PreparedStatement preparedStatement) {
         try {
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException ex) {

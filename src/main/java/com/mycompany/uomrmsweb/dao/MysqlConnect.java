@@ -1,3 +1,6 @@
+//this architecture is not good
+//give connection to each method and close
+
 package com.mycompany.uomrmsweb.dao;
 
 import java.sql.Connection;
@@ -14,7 +17,7 @@ public final class MysqlConnect {
     
     private MysqlConnect() {
         String url= "jdbc:mysql://localhost:3306/";
-        String dbName = "uomrms_db";
+        String dbName = "java_web_login";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "shanika";
         String password = "711246252";
