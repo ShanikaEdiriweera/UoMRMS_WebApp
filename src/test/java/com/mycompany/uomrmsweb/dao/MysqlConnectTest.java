@@ -15,11 +15,13 @@ import static org.junit.Assert.*;
 public class MysqlConnectTest {
     @Test
     public void getMysqlConnectTest(){
+        System.out.println("getMysqlConnectTest");
         assertNotNull(MysqlConnect.getMysqlConnect());
     }
     
     @Test
     public void getDBConnectionTest() throws ClassNotFoundException, SQLException{
+        System.out.println("getDBConnectionTest");
         assertNotNull(MysqlConnect.getMysqlConnect().getDBConnection());
     }
 }

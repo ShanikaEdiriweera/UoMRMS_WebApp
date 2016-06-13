@@ -33,8 +33,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         
         public User findByUsername(String username){
             User user = null;
+            DBHandler dBHandler = new DBHandler();
             String query = "SELECT * FROM APP_USER WHERE username = '"+username+"'";
-            ResultSet userResultSet = DBHandler.getData(query);
+            ResultSet userResultSet = dBHandler.getData(query);
             try {
                 if(userResultSet.next()){
                     user = new User(userResultSet.getInt("id"), userResultSet.getString("username"), userResultSet.getString("password"), userResultSet.getString("first_name"), userResultSet.getString("last_name"), userResultSet.getString("email"), userResultSet.getString("state"),UserType.valueOf(userResultSet.getString("user_type")));

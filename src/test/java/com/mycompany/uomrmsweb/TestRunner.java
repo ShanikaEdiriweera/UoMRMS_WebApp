@@ -22,16 +22,10 @@ import org.junit.runner.notification.Failure;
  */
 public class TestRunner {
     public static void main(String[] args) throws SQLException {
-//        ResultSet resultSet = DBHandler.getData("SELECT * FROM APP_USER WHERE username = 'bill'");
-//        resultSet.next();
-//        String password = resultSet.getString("password");
-//        System.out.println(password);
-
-        new DBHandler().getData("SELECT * FROM `APP_USER` WHERE `username` = 'bill'");
         
-        //Result result = JUnitCore.runClasses(UserTest.class,UserDaoTest.class,DBHandlerTest.class,MysqlConnectTest.class);
+        Result result = JUnitCore.runClasses(UserTest.class,UserDaoTest.class,DBHandlerTest.class,MysqlConnectTest.class);
         //Result result = JUnitCore.runClasses(MysqlConnectTest.class);
-        Result result = JUnitCore.runClasses(DBHandlerTest.class);
+        //Result result = JUnitCore.runClasses(DBHandlerTest.class);
         //Result result = JUnitCore.runClasses(UserDaoTest.class);
         //Result result = JUnitCore.runClasses(UserTest.class);
         for (Failure failure : result.getFailures()) {
