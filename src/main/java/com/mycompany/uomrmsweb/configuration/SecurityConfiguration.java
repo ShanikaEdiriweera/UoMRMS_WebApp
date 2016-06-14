@@ -13,25 +13,31 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	@Qualifier("customUserDetailsService")
-	UserDetailsService userDetailsService;
-	
-	@Autowired
-	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-	}
-        
-        @Override
-	protected void configure(HttpSecurity http) throws Exception {
-	  http.authorizeRequests()
-	  	.antMatchers("/", "/home").permitAll()
-	  	.antMatchers("/admin/**").access("hasRole('SystemAdmin') or hasRole('ExaminationsStaff')")
-	  	.antMatchers("/staff/**").access("hasRole('AcademicStaff') or hasRole('UniversityAdmin')")
-                .antMatchers("/student/**").access("hasRole('Student')")  
-	  	.and().formLogin().loginPage("/login")
-	  	.usernameParameter("username").passwordParameter("password")
-	  	.and().csrf()
-	  	.and().exceptionHandling().accessDeniedPage("/Access_Denied");
-	}
+    @Autowired
+    @Qualifier("customUserDetailsService")
+    UserDetailsService userDetailsService;
+
+    @Autowired
+    CustomSuccessHandler customSuccessHandler;
+
+    @Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(userDetailsService);
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+        //.antMatchers("/", "/home").permitAll()
+        .antMatchers("/", "/home").access("hasRole('USER')")
+        .antMatchers("/admin/**").access("hasRole('SystemAdmin') or hasRole('ExaminationsStaff')")
+        .antMatchers("/staff/**").access("hasRole('AcademicStaff') or hasRole('UniversityAdmin')")
+        .antMatchers("/student/**").access("hasRole('Student')")  
+        //.and().formLogin().loginPage("/login")
+        .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
+        .usernameParameter("username").passwordParameter("password")
+        .and().csrf()
+        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+    }
 }
+

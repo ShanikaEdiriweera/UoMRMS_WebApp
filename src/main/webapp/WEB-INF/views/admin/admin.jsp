@@ -41,7 +41,7 @@
 
                                     <li><a href="#">Home</a></li>
                                     
-                                    <li><a class="page-scroll" href ="#C">Information Center</a></li> 
+                                    <li><a class="page-scroll" href ="<c:url value="/logout" />">(${user})Logout</a></li> 
                                 </ul>
                             </div>
                       <br />
@@ -120,8 +120,8 @@
     </div>
   </div>
 </div>
-	Dear <strong>${user}</strong>, Welcome to DBA Page.
-	<a href="<c:url value="/logout" />">Logout</a>
+	
+	
         <script src="<c:url value='/static/js/myjavascript.js' />"></script>
 </body>
 </html>

@@ -10,7 +10,14 @@
 	</head>
 
 	<body>
+            
 		<div id="mainWrapper">
+                    <div style="margin-top: 2%">
+                        <center><img src="<c:url value='/static/img/uomlogo.png' />"/></center>
+            </div>
+            <div>
+                <h1 style="text-align: center">University of Moratuwa Results Management System</h1>
+            </div>
 			<div class="login-container">
 				<div class="login-card">
 					<div class="login-form">
@@ -37,8 +44,7 @@
 							<input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
 								
 							<div class="form-actions">
-								<input type="submit"
-									class="btn btn-block btn-primary btn-default" value="Log in">
+								<input type="submit" class="btn btn-block btn-primary btn-default" value="Log in">
 							</div>
 						</form>
 					</div>
