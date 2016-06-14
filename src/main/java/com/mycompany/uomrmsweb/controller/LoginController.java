@@ -25,7 +25,7 @@ public class LoginController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "login/admin";
+		return "admin/admin";
 	}
         
         @RequestMapping(value = "/db", method = RequestMethod.GET)
@@ -38,14 +38,14 @@ public class LoginController {
 	@RequestMapping(value = "/staff", method = RequestMethod.GET)
 	public String staffPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "login/staff";
+		return "staff/staff";
 	}
         
         //new
         @RequestMapping(value = "/student", method = RequestMethod.GET)
 	public String studentPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "login/student";
+		return "student/student";
 	}
 
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
