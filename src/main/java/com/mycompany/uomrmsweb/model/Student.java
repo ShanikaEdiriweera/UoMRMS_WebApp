@@ -10,8 +10,8 @@ public class Student extends User{
     //havent created an entity for batch
     private int batch;
     
-    public Student(String ID, String name, Gender gender, UserType userType, Department department, int batch) {
-        //super(ID, name, gender, userType, department);
+    public Student(String ID, String username, String password,String name, Gender gender, UserType userType, Department department, int batch,String state) {
+        super(ID, username,password,name, gender, userType, department,state);
         cGPA = 0.0;
         rank = 0;
         this.batch = batch; 

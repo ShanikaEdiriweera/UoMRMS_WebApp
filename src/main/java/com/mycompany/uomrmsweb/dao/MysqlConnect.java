@@ -17,7 +17,7 @@ public final class MysqlConnect {
     
     private MysqlConnect() {
         String url= "jdbc:mysql://localhost:3306/";
-        String dbName = "java_web_login";
+        String dbName = "uomrms_db";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "shanika";
         String password = "711246252";

@@ -47,7 +47,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `uomrms_db`.`User` (
   `ID` VARCHAR(10) NOT NULL,
   `name` VARCHAR(100) NOT NULL,
-  `user_type` ENUM('System Admin', 'University Admin', 'Academic Staff', 'Examinations Staff', 'Student') NULL,
+  `user_type` ENUM('SystemAdmin', 'UniversityAdmin', 'AcademicStaff', 'ExaminationsStaff', 'Student') NULL,
   `Department_ID` INT NOT NULL,
   `Gender` ENUM('Male', 'Female') NULL,
   `state` ENUM('Active', 'Inactive') NULL DEFAULT 'Active',

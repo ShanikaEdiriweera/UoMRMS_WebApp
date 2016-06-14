@@ -15,7 +15,8 @@ import org.junit.Test;
 public class UserTest {
     @Test
     public void TestUserType(){
-        User user = new User(0, "username" , "password", "firstName", "lastName", "email", "Active", UserType.Student);
+        //User user = new User(0, "username" , "password", "firstName", "lastName", "email", "Active", UserType.Student);
+        User user = new User("1", "username","password" ,  "Shanika" , Gender.Male,UserType.Student, new Department(0, "name", new Faculty(0, "name")), "Active");
         assertEquals("usertype returned","Student",user.getUserType().toString());
     }
 }

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.uomrmsweb.model.User;
-import com.mycompany.uomrmsweb.model.UserProfile;
 
 
 @Service("customUserDetailsService")
@@ -39,13 +38,8 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private List<GrantedAuthority> getGrantedAuthorities(User user){
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
-                //test this
+                //adding userType to authorities
                 authorities.add(new SimpleGrantedAuthority("ROLE_"+user.getUserType().toString()));
-                
-//		for(UserProfile userProfile : user.getUserProfiles()){
-//			System.out.println("UserProfile : "+userProfile);
-//			authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
-//		}
                 
 		System.out.print("authorities :"+authorities);
 		return authorities;

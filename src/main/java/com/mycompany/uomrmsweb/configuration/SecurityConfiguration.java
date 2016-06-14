@@ -21,20 +21,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
-	
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//	  http.authorizeRequests()
-//	  	.antMatchers("/", "/home").permitAll()
-//	  	.antMatchers("/admin/**").access("hasRole('ADMIN')")
-//                .antMatchers("/staff/**").access("hasRole('DBA')")
-//                .antMatchers("/staff/**").access("hasRole('ADMIN') or hasRole('DBA')")
-//                //.antMatchers("/staff/**").access("hasRole('ADMIN') and hasRole('DBA')")
-//	  	.and().formLogin().loginPage("/login")
-//	  	.usernameParameter("username").passwordParameter("password")
-//	  	.and().csrf()
-//	  	.and().exceptionHandling().accessDeniedPage("/Access_Denied");
-//	}
         
         @Override
 	protected void configure(HttpSecurity http) throws Exception {
