@@ -28,7 +28,7 @@
 		
 
                 <div class="container-fluid">
-                      <a class="navbar-brand" href="#"><span style="font-size:30px;cursor:pointer" onclick="openNav()"> =</span> </a>
+                      <a class="navbar-brand" href="#"><span style="font-size:30px;cursor:pointer" onclick="openNav()"> <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span> </a>
                     <a href="Default.aspx" class="navbar-brand"> Results Management System</a>
                     <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                         <span class="icon-bar"></span>
