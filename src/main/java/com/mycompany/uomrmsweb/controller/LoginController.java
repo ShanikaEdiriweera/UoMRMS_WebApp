@@ -25,7 +25,8 @@ public class LoginController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "admin/admin";
+		//return "admin/admin";
+                return "redirect:http://52.25.13.158/UoMRMS/web/app_dev.php/";
 	}
         
         @RequestMapping(value = "/db", method = RequestMethod.GET)
